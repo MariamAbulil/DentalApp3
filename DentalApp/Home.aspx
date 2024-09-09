@@ -1,0 +1,456 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="DentalApp.Home" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>DentalApp - About Us</title>
+    <style>
+        body {
+            font-family: 'Arial';
+            margin: 0;
+            padding: 0;
+            background-color: #c9d6ff;
+            background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+        }
+                .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background:#c9d6ff;
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .auto-style1 {
+    width: 336px;
+    justify-content:flex-start;
+}
+        .gridContainer {
+    overflow-x: auto;
+    width: 100%;
+}
+
+        .auto-style2 {
+            background-color: #FFFFFF;
+        }
+
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">DentalApp</span> - Your Dental Connection</h1>
+            </div>
+            <nav>
+                <asp:BulletedList ID="BulletedList1" runat="server" DisplayMode="LinkButton" OnClick="BulletedList1_Click " CssClass="highlight">
+
+                </asp:BulletedList>
+                
+            </nav>
+            
+        </div>
+    </header>
+
+        <asp:MultiView ID="MultiView1" runat="server">
+            <asp:View ID="Main" runat="server">
+                <div class="container">
+                    <section id="main">
+                        <div class="container">
+                            <h1 style="font-family: 'Bahnschrift SemiCondensed'; font-size: 100px; font-style: oblique; font-weight: 600; font-variant: small-caps; text-transform: capitalize; color: #000000; text-decoration: none; line-height: normal; vertical-align: middle; text-align: center">About DentalApp&nbsp;
+                                <asp:Image ID="Image2" runat="server" AlternateText="Icon" ImageUrl="~/img/logo3.jpg" Width="96px" />
+                            </h1>
+                            <section id="main0">
+                                <h3 aria-atomic="False" aria-autocomplete="none" style="font-family: 'Courier New', Courier, monospace; font-style: inherit; font-variant: normal; text-transform: none; visibility: visible">Welcome to AAUP-DentalApp, a platform designed to enhance communication between dental students and patients. We hope you enjoy using our services and benefit from them as much as possible. Have a great journey with us!</h3>
+                                <p class="auto-style1">
+                                    <asp:AdRotator ID="AdRotator2" runat="server" datasourceid="XmlDataSource2" />
+                                    <asp:XmlDataSource ID="XmlDataSource2" runat="server" DataFile="~/AdvFile/XMLFile1.xml"></asp:XmlDataSource>
+                                </p>
+                            </section>
+                        </div>
+                        <p>
+                            &nbsp;</p>
+                    </section>
+                </div>
+                <p>
+                    &nbsp;</p>
+            </asp:View>
+            <asp:View ID="UsersInfo" runat="server">
+                <div class="container">
+                    <h1 style="text-align: center; background-color: #FFFFFF;">Users Information
+                        <asp:Image ID="Image8" runat="server" Height="102px" ImageUrl="~/img/user-information icon.png" Width="104px" />
+                    </h1><br />
+                    <h4>Students
+                        <asp:Image ID="Image3" runat="server" Height="50px" ImageUrl="~/img/st.png" Width="50px" />
+                    </h4>
+                    <div class="gridContainer" style="overflow-x: auto; width: 100%;">
+                    <asp:GridView ID="studentsGridView" runat="server" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="5" DataKeyNames="Id" DataSourceID="SqlDataSource2" GridLines="Horizontal">
+                        <AlternatingRowStyle BackColor="#006666" Font-Bold="False" Font-Italic="True" Font-Overline="False" />
+                        <Columns>
+                            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                            <asp:BoundField DataField="phone" HeaderText="phone" SortExpression="phone" />
+                            <asp:BoundField DataField="Acadamic_Year" HeaderText="Acadamic_Year" SortExpression="Acadamic_Year" />
+                            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                            <asp:BoundField DataField="BirthDate" HeaderText="BirthDate" SortExpression="BirthDate" />
+                            <asp:BoundField DataField="gender" HeaderText="gender" SortExpression="gender" />
+                            <asp:BoundField DataField="InsID" HeaderText="InsID" SortExpression="InsID" />
+                            <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
+                        </Columns>
+                        <FooterStyle BackColor="White" ForeColor="#333333" />
+                        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="White" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                        <SortedAscendingHeaderStyle BackColor="#487575" />
+                        <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                        <SortedDescendingHeaderStyle BackColor="#275353" />
+                    </asp:GridView>
+                        </div>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Id], [Name], [phone], [Acadamic_Year], [Email], [BirthDate], [gender], [InsID], [Password] FROM [Student]" DeleteCommand="DELETE FROM [Student] WHERE id=@id" UpdateCommand="UPDATE [Student] SET Name=@Name, phone=@phone,acadamic_year=@acadamic_year, Gender=@Gender, Email=@Email, Password=@Password, BirthDate=@BirthDate WHERE Id=@Id"></asp:SqlDataSource>
+                    <br />
+                    <h4>Instructors
+                        <asp:Image ID="Image4" runat="server" Height="50px" ImageUrl="~/img/3410142.png" Width="50px" />
+                    </h4>
+                    <div class="gridContainer" style="overflow-x: auto; width: 100%;">
+                    <asp:GridView ID="instructorsGridView" runat="server" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource3" GridLines="Horizontal">
+                        <Columns>
+                            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                            <asp:BoundField DataField="phone" HeaderText="phone" SortExpression="phone" />
+                            <asp:BoundField DataField="BirthDate" HeaderText="BirthDate" SortExpression="BirthDate" />
+                            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                            <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
+                            <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
+                        </Columns>
+                        <FooterStyle BackColor="White" ForeColor="#333333" />
+                        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="White" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                        <SortedAscendingHeaderStyle BackColor="#487575" />
+                        <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                        <SortedDescendingHeaderStyle BackColor="#275353" />
+                    </asp:GridView>
+                        </div>
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Id], [Name], [phone], [BirthDate], [Email], [Password], [Gender] FROM [Instructor]" DeleteCommand="DELETE FROM [Instructor] WHERE id=@id" UpdateCommand="UPDATE [Instructor] SET Name=@Name, phone=@phone, Email=@Email, Gender=@Gender, Password=@Password,BirthDate=@BirthDate WHERE Id=@Id"></asp:SqlDataSource>
+                    <br />
+                    <h4>Patients
+                        <asp:Image ID="Image5" runat="server" Height="50px" ImageUrl="~/img/2347592.png" Width="50px" />
+                    </h4>
+                    <div id="gridContainer" style="overflow-x: auto; width: 100%;">
+                    <asp:GridView ID="patientsGridView" runat="server" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource4" GridLines="Horizontal">
+                        <Columns>
+                            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                            <asp:BoundField DataField="phone" HeaderText="phone" SortExpression="phone" />
+                            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                            <asp:BoundField DataField="BirthDate" HeaderText="BirthDate" SortExpression="BirthDate" />
+                            <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
+                            <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
+                            <asp:BoundField DataField="InsId" HeaderText="InsId" SortExpression="InsId" />
+                            <asp:BoundField DataField="StId" HeaderText="StId" SortExpression="StId" />
+                        </Columns>
+                        <FooterStyle BackColor="White" ForeColor="#333333" />
+                        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="White" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                        <SortedAscendingHeaderStyle BackColor="#487575" />
+                        <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                        <SortedDescendingHeaderStyle BackColor="#275353" />
+                    </asp:GridView>
+                        </div>
+                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Patient]" DeleteCommand="DELETE FROM [Patient] WHERE id=@id" UpdateCommand="UPDATE [Patient] SET Name=@Name, phone=@phone, Email=@Email, Gender=@Gender, Password=@Password,BirthDate=@BirthDate WHERE Id=@Id"></asp:SqlDataSource>
+                    <br />
+                    <br />
+
+                </div>
+            </asp:View>
+            <asp:View ID="ApproveInstructors" runat="server">
+                <div class="container">
+                    <h1 style="background-color: #FFFFFF; text-align: center;">Approve Instructors
+                        <asp:Image ID="Image6" runat="server" Height="102px" ImageUrl="~/img/Approve Instructors.png" Width="104px" />
+                    </h1>
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" GridLines="Horizontal" OnRowDataBound="GridView1_RowDataBound">
+                        <Columns>
+                            <asp:BoundField DataField="Name" HeaderText="Name" InsertVisible="False" ReadOnly="True" SortExpression="Name" />
+                            <asp:BoundField DataField="approved" HeaderText="approved" SortExpression="approved" />
+                            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                        </Columns>
+                        <FooterStyle BackColor="White" ForeColor="#333333" />
+                        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="White" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                        <SortedAscendingHeaderStyle BackColor="#487575" />
+                        <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                        <SortedDescendingHeaderStyle BackColor="#275353" />
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [Name], [approved], [Id] FROM [Instructor]" UpdateCommand="UPDATE [Instructor] SET approved = @approved where Id=@Id "></asp:SqlDataSource>
+                    <br />
+                </div>
+            </asp:View>
+
+            <asp:View ID="Ins_Pat_Matching" runat="server">
+                <div class="container">
+                <h1 style="text-align: center; background-color: #FFFFFF">student-patient match
+                    <asp:Image ID="Image7" runat="server" Height="102px" ImageUrl="~/img/match.png" Width="104px" />
+                    </h1><br />
+                <h4>Patients</h4>
+                <asp:GridView ID="pGrid" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource5" GridLines="Horizontal" AutoGenerateEditButton="True" OnRowDataBound="pGrid_RowDataBound">
+                    <Columns>
+                        <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" InsertVisible="False" ReadOnly="True" />
+                        <asp:BoundField DataField="InsId" HeaderText="InsId" SortExpression="InsId" />
+                    </Columns>
+                    <FooterStyle BackColor="White" ForeColor="#333333" />
+                    <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="White" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                    <SortedAscendingHeaderStyle BackColor="#487575" />
+                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                    <SortedDescendingHeaderStyle BackColor="#275353" />
+                </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Id], [Name], [InsId] FROM [Patient]" UpdateCommand="UPDATE [Patient] SET InsId = @InsId where Id=@Id "
+></asp:SqlDataSource>
+                <h4>Instructors</h4>
+                <asp:GridView ID="InsGrid" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource6" GridLines="Horizontal">
+                    <Columns>
+                        <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                    </Columns>
+                    <FooterStyle BackColor="White" ForeColor="#333333" />
+                    <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="White" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                    <SortedAscendingHeaderStyle BackColor="#487575" />
+                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                    <SortedDescendingHeaderStyle BackColor="#275353" />
+                </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Id], [Name] FROM [Instructor]"></asp:SqlDataSource>
+                    </div>
+            </asp:View>
+            <asp:View ID="reportSet" runat="server">
+                <div class="container">
+                <asp:Label ID="Label1" runat="server" Text="&lt;h4&gt;Insert Your Report For Patient:&lt;/h4&gt;"></asp:Label>
+                    Report Title:
+                    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                    <br />
+                    <br />
+                    Report Content:<br />
+                <asp:TextBox ID="TextBox1" runat="server" TextMode="MultiLine" Height="106px" Width="466px"></asp:TextBox>
+                    <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" BorderColor="Black" BorderStyle="Dotted" BorderWidth="2px" Font-Bold="True" Font-Italic="True" ForeColor="#00CCFF" Height="52px" />
+                    </div>
+            </asp:View>
+            
+            <asp:View ID="appointmentSet" runat="server">
+                <h1 style="text-align: center; background-color: #FFFFFF">Appintment Date&nbsp;
+                    <asp:Image ID="Image13" runat="server" Height="102px" ImageUrl="~/img/appointmentbook.png" Width="104px" />
+                </h1>
+                <br />
+                Please Appointment the Date :
+                <asp:Calendar ID="Calendar1" runat="server" Width="370px" ></asp:Calendar>
+                <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Submit Appointment" />
+                <br />
+                <br />
+                Show If <span class="auto-style2">Pationt</span> Accept The <span class="auto-style2">Appointmet</span> :
+                <br />
+                <asp:Button ID="Button8" runat="server" Text="Upcoming Appointment" OnClick="Button8_Click" />
+                <br />
+                <asp:GridView ID="GridView5" runat="server" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" Width="376px">
+                    <FooterStyle BackColor="White" ForeColor="#333333" />
+                    <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="White" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                    <SortedAscendingHeaderStyle BackColor="#487575" />
+                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                    <SortedDescendingHeaderStyle BackColor="#275353" />
+                </asp:GridView>
+            </asp:View>
+            <asp:View ID="StPatMatch" runat="server">
+                <h1 style="text-align: center; background-color: #FFFFFF">Match Student With Pationt Page
+                    <asp:Image ID="Image12" runat="server" Height="102px" ImageUrl="~/img/Approve_icon.svg.png" Width="104px" />
+                </h1>
+                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource2" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="Select" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                        <asp:BoundField DataField="phone" HeaderText="phone" SortExpression="phone" />
+                        <asp:BoundField DataField="Acadamic_Year" HeaderText="Acadamic_Year" SortExpression="Acadamic_Year" />
+                        <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                        <asp:BoundField DataField="BirthDate" HeaderText="BirthDate" SortExpression="BirthDate" />
+                        <asp:BoundField DataField="gender" HeaderText="gender" SortExpression="gender" />
+                        <asp:BoundField DataField="InsID" HeaderText="InsID" SortExpression="InsID" />
+                        <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
+                        <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                        <asp:BoundField DataField="phone" HeaderText="phone" SortExpression="phone" />
+                        <asp:BoundField DataField="Acadamic_Year" HeaderText="Acadamic_Year" SortExpression="Acadamic_Year" />
+                        <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                        <asp:BoundField DataField="BirthDate" HeaderText="BirthDate" SortExpression="BirthDate" />
+                        <asp:BoundField DataField="gender" HeaderText="gender" SortExpression="gender" />
+                        <asp:BoundField DataField="InsID" HeaderText="InsID" SortExpression="InsID" />
+                    </Columns>
+                    <FooterStyle BackColor="White" ForeColor="#333333" />
+                    <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="White" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                    <SortedAscendingHeaderStyle BackColor="#487575" />
+                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                    <SortedDescendingHeaderStyle BackColor="#275353" />
+                </asp:GridView>
+                <br />
+                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                
+                
+                
+                <br />
+                <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource4" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" >
+                    <Columns>
+                        <asp:TemplateField>
+                        <ItemTemplate>
+                        <asp:Button ID="Button5" runat="server" Text="Select" OnClick="Button5_Click" />
+                        </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                        <asp:BoundField DataField="phone" HeaderText="phone" SortExpression="phone" />
+                        <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                        <asp:BoundField DataField="BirthDate" HeaderText="BirthDate" SortExpression="BirthDate" />
+                        <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
+                        <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
+                        <asp:BoundField DataField="InsId" HeaderText="InsId" SortExpression="InsId" />
+                        <asp:BoundField DataField="StId" HeaderText="StId" SortExpression="StId" />
+                    </Columns>
+                    <FooterStyle BackColor="White" ForeColor="#333333" />
+                    <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="White" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                    <SortedAscendingHeaderStyle BackColor="#487575" />
+                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                    <SortedDescendingHeaderStyle BackColor="#275353" />
+                </asp:GridView>
+                <br />
+                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <br />
+                <br />
+                <asp:Button ID="Button3" runat="server" Text="Match" OnClick="Button3_Click" />
+            </asp:View>
+            <asp:View ID="approveStudent" runat="server">
+                <h1 style="text-align: center; background-color: #FFFFFF">approve Student Page
+                    <asp:Image ID="Image11" runat="server" Height="102px" ImageUrl="~/img/Approve_icon.svg.png" Width="104px" />
+                </h1>
+                approve Student : <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" DataKeyNames="Id" DataSourceID="SqlDataSource7" Width="359px" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
+                    <Columns>
+                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                        <asp:BoundField DataField="approved" HeaderText="approved" SortExpression="approved" />
+                        <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                    </Columns>
+                    <FooterStyle BackColor="White" ForeColor="#333333" />
+                    <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="White" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                    <SortedAscendingHeaderStyle BackColor="#487575" />
+                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                    <SortedDescendingHeaderStyle BackColor="#275353" />
+                </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Name], [approved], [Id] FROM [Student]" UpdateCommand="UPDATE [Student] SET approved = @approved where Id=@Id "></asp:SqlDataSource>
+            </asp:View>
+            <asp:View ID="reviewReports" runat="server">
+                <h1 style="text-align: center; background-color: #FFFFFF">review Reports&nbsp;
+                    <asp:Image ID="Image10" runat="server" Height="102px" ImageUrl="~/img/reviewReports.png" Width="104px" />
+                </h1>
+                Select Student name :
+                <asp:ListBox ID="ListBox1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource9" DataTextField="Name" DataValueField="Id" Height="56px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" style="margin-left: 76px" Width="171px"></asp:ListBox>
+                <asp:SqlDataSource ID="SqlDataSource9" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Student]"></asp:SqlDataSource>
+                Report List :
+                <asp:ListBox ID="ListBox3" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ListBox3_SelectedIndexChanged" style="margin-left: 164px" Width="156px"></asp:ListBox>
+                <br />
+                Content of Report&nbsp; :
+                <asp:TextBox ID="TextBox4" runat="server" Height="215px" OnTextChanged="TextBox4_TextChanged" ReadOnly="True" style="margin-left: 38px; margin-top: 6px;" TextMode="MultiLine" Width="454px"></asp:TextBox>
+                <br />
+                <br />
+            </asp:View>
+            <asp:View ID="appointmentbook" runat="server">
+                <h1 style="text-align: center; background-color: #FFFFFF">appointment Page&nbsp;
+                    <asp:Image ID="Image9" runat="server" Height="102px" ImageUrl="~/img/appointmentbook.png" Width="104px" />
+                </h1>
+                <br />
+                Please selection appointment if it is appropriate for you :&nbsp;&nbsp;
+                <br />
+                <asp:ListBox ID="ListBox2" runat="server" Height="73px" OnSelectedIndexChanged="ListBox2_SelectedIndexChanged" style="margin-left: 490px; margin-top: 2px;" Width="342px"></asp:ListBox>
+                <br />
+                <br />
+                <asp:Button ID="Button7" runat="server" Height="36px" OnClick="Button7_Click" Text="Accept" BackColor="#66FFFF" BorderColor="Black" BorderStyle="Dotted" style="margin-left: 400px" Width="158px" />
+                <asp:Button ID="Button6" runat="server" Height="32px" OnClick="Button6_Click" style="margin-left: 148px; margin-bottom: 2px" Text="Reject" Width="145px" BackColor="#66FFFF" BorderColor="Black" BorderStyle="Dashed" />
+                <br />
+            </asp:View>
+            <asp:View ID="View11" runat="server">
+            </asp:View>
+            <asp:View ID="View12" runat="server">
+            </asp:View>
+            
+        </asp:MultiView>
+        
+    </form>
+</body>
+</html>
